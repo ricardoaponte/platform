@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 - Color scheme
+- Replaced a package of breadcrumbs with [tabuna/breadcrumbs](https://github.com/tabuna/breadcrumbs)
 
 ### Remove
 - Pending `Requests` in the screen constructor
