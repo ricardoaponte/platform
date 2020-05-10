@@ -59,7 +59,6 @@
       "Orchid\\Platform\\": "src/Platform/",
       "Orchid\\Presets\\": "src/Presets/",
       "Orchid\\Screen\\": "src/Screen/",
-      "Orchid\\Setting\\": "src/Setting/",
       "Orchid\\Support\\": "src/Support/"
     },
     "files": [
@@ -83,8 +82,7 @@
       ],
       "aliases": {
         "Alert": "Orchid\\Support\\Facades\\Alert",
-        "Dashboard": "Orchid\\Support\\Facades\\Dashboard",
-        "Setting": "Orchid\\Support\\Facades\\Setting"
+        "Dashboard": "Orchid\\Support\\Facades\\Dashboard"
       }
     }
   },

@@ -7,7 +7,7 @@
                     data-target="layouts--search.query"
                     type="text"
                     value="@yield('search')"
-                       class="form-control input-sm padder bg-dark text-white"
+                       class="form-control input-sm padder"
                        placeholder="{{ __('What to search...') }}"
                 >
                 <div class="input-icon-addon">

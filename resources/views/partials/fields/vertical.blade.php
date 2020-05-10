@@ -1,6 +1,6 @@
 <div class="form-group">
     @isset($title)
-        <label for="{{$id}}">{{$title}}
+        <label for="{{$id}}" class="form-label">{{$title}}
             @if(isset($attributes['required']) && $attributes['required'])
                 <sup class="text-danger">*</sup>
             @endif
@@ -10,13 +10,15 @@
         </label>
     @endisset
 
-    {{$slot}}
-
     @if($errors->has($oldName))
         <div class="invalid-feedback d-block">
             <small>{{$errors->first($oldName)}}</small>
         </div>
-    @elseif(isset($help))
+    @endif
+
+    {{$slot}}
+
+    @if(isset($help))
         <small class="form-text text-muted">{!!$help!!}</small>
     @endif
 </div>
