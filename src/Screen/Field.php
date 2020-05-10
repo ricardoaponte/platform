@@ -20,7 +20,6 @@ use Throwable;
  * @method self accesskey($value = true)
  * @method self class($value = true)
  * @method self dir($value = true)
- * @method self hidden($value = true)
  * @method self id($value = true)
  * @method self lang($value = true)
  * @method self spellcheck($value = true)
@@ -309,10 +308,9 @@ class Field implements Fieldable
      */
     public function getOldName(): string
     {
-        $name = str_ireplace(['][', '['], '.', $this->get('name'));
-        $name = str_ireplace([']'], '', $name);
-
-        return $name;
+        return (string) Str::of($this->get('name'))
+            ->replace(['][', '['], '.')
+            ->replace([']'], '');
     }
 
     /**

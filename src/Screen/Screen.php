@@ -7,7 +7,6 @@ namespace Orchid\Screen;
 use Illuminate\Contracts\Routing\UrlRoutable;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -47,11 +46,6 @@ abstract class Screen extends Controller
     public $description;
 
     /**
-     * @var Request
-     */
-    public $request;
-
-    /**
      * Permission.
      *
      * @var string|array
@@ -67,16 +61,6 @@ abstract class Screen extends Controller
      * @var array
      */
     protected $arguments = [];
-
-    /**
-     * Screen constructor.
-     *
-     * @param Request|null $request
-     */
-    public function __construct(Request $request = null)
-    {
-        $this->request = $request ?? request();
-    }
 
     /**
      * Button commands.
@@ -114,7 +98,7 @@ abstract class Screen extends Controller
      */
     protected function asyncBuild($method, $slug)
     {
-        $this->arguments = $this->request->all();
+        $this->arguments = request()->all();
 
         $this->reflectionParams($method);
 
@@ -168,7 +152,7 @@ abstract class Screen extends Controller
     {
         abort_if(! $this->checkAccess(), 403);
 
-        if ($this->request->method() === 'GET' || (! count($parameters))) {
+        if (request()->isMethod('GET') || (! count($parameters))) {
             $this->arguments = $parameters;
 
             return $this->redirectOnGetMethodCallOrShowView();
@@ -277,7 +261,7 @@ abstract class Screen extends Controller
      */
     protected function redirectOnGetMethodCallOrShowView()
     {
-        $expectedArg = count($this->request->route()->getCompiled()->getVariables()) - self::COUNT_ROUTE_VARIABLES;
+        $expectedArg = count(request()->route()->getCompiled()->getVariables()) - self::COUNT_ROUTE_VARIABLES;
         $realArg = count($this->arguments);
 
         if ($realArg <= $expectedArg) {

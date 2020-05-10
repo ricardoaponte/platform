@@ -7,6 +7,7 @@ namespace App\Orchid\Composers;
 use Orchid\Platform\Dashboard;
 use Orchid\Platform\ItemMenu;
 use Orchid\Platform\Menu;
+use Orchid\Support\Color;
 
 class MainMenuComposer
 {
@@ -37,7 +38,7 @@ class MainMenuComposer
                     ->icon('icon-compass')
                     ->badge(function () {
                         return 6;
-                    })
+                    }, Color::DANGER())
             )
             ->add(Menu::PROFILE,
                 ItemMenu::label('Another action')

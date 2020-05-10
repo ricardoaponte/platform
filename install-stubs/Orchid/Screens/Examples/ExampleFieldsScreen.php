@@ -21,7 +21,6 @@ use Orchid\Screen\Fields\Select;
 use Orchid\Screen\Fields\SimpleMDE;
 use Orchid\Screen\Fields\Switcher;
 use Orchid\Screen\Fields\TextArea;
-use Orchid\Screen\Fields\TinyMCE;
 use Orchid\Screen\Fields\Upload;
 use Orchid\Screen\Fields\UTM;
 use Orchid\Screen\Layout;
@@ -168,11 +167,6 @@ class ExampleFieldsScreen extends Screen
                         3 => 'Pause',
                         4 => 'Work',
                     ]),
-
-                TinyMCE::make('body')
-                    ->required()
-                    ->title('Name Articles')
-                    ->help('Article title'),
 
                 Map::make('place')
                     ->required()
