@@ -10,7 +10,8 @@ use Orchid\Platform\Http\Controllers\Systems\SystemController;
 $this->router->get('/', [SystemController::class, 'index'])
     ->name('systems.index')
     ->breadcrumbs(function (Trail $trail) {
-        return $trail->parent('platform.index')
+        return $trail
+            ->parent('platform.index')
             ->push(__('Systems'), route('platform.systems.index'));
     });
 
