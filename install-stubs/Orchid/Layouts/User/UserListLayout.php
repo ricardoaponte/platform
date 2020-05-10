@@ -31,7 +31,7 @@ class UserListLayout extends Table
                 ->cantHide()
                 ->filter(TD::FILTER_TEXT)
                 ->render(function (User $user) {
-                    new Persona($user->presenter());
+                    return new Persona($user->presenter());
                 }),
 
             TD::set('email', __('Email'))
