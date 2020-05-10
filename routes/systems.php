@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-use Tabuna\Breadcrumbs\Trail;
 use Orchid\Platform\Http\Controllers\Systems\AttachmentController;
 use Orchid\Platform\Http\Controllers\Systems\RelationController;
 use Orchid\Platform\Http\Controllers\Systems\SystemController;
+use Tabuna\Breadcrumbs\Trail;
 
 $this->router->get('/', [SystemController::class, 'index'])
     ->name('systems.index')
