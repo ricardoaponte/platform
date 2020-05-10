@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-use Tabuna\Breadcrumbs\Trail;
 use Orchid\Platform\Http\Controllers\Systems\IndexController;
 use Orchid\Platform\Http\Screens\NotificationScreen;
 use Orchid\Platform\Http\Screens\SearchScreen;
+use Tabuna\Breadcrumbs\Trail;
 
 // Index and default...
 $this->router->get('/', [IndexController::class, 'index'])
