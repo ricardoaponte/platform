@@ -27,8 +27,6 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->binding();
 
-        require Dashboard::path('routes/breadcrumbs.php');
-
         parent::boot();
     }
 
@@ -70,15 +68,6 @@ class RouteServiceProvider extends ServiceProvider
             ->as('platform.')
             ->middleware(config('platform.middleware.private'))
             ->group(Dashboard::path('routes/dashboard.php'));
-
-        /*
-         * Auth
-         */
-        Route::domain((string) config('platform.domain'))
-            ->prefix(Dashboard::prefix('/'))
-            ->as('platform.')
-            ->middleware(config('platform.middleware.public'))
-            ->group(Dashboard::path('routes/auth.php'));
 
         /*
          * Systems

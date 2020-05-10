@@ -25,6 +25,7 @@ use Orchid\Platform\Commands\TableCommand;
 use Orchid\Platform\Dashboard;
 use Orchid\Presets\Orchid;
 use Orchid\Presets\Source;
+use Tabuna\Breadcrumbs\BreadcrumbsServiceProvider;
 use Watson\Active\ActiveServiceProvider;
 
 /**
@@ -209,6 +210,7 @@ class FoundationServiceProvider extends ServiceProvider
     public function provides(): array
     {
         return [
+            BreadcrumbsServiceProvider::class,
             UiServiceProvider::class,
             ScoutServiceProvider::class,
             ActiveServiceProvider::class,

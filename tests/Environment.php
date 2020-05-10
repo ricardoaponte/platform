@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Orchid\Tests;
 
-use DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator;
-use DaveJamesMiller\Breadcrumbs\BreadcrumbsManager;
 use DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs;
 use Orchid\Database\Seeds\OrchidDatabaseSeeder;
 use Orchid\Platform\Models\User;
@@ -73,16 +71,6 @@ trait Environment
         ]);
         $config->set('scout.driver', 'array');
         $config->set('database.default', 'orchid');
-
-        $config->set('breadcrumbs', [
-            'view'                                     => 'breadcrumbs::bootstrap4',
-            'files'                                    => base_path('routes/breadcrumbs.php'),
-            'unnamed-route-exception'                  => false,
-            'missing-route-bound-breadcrumb-exception' => false,
-            'invalid-named-breadcrumb-exception'       => false,
-            'manager-class'                            => BreadcrumbsManager::class,
-            'generator-class'                          => BreadcrumbsGenerator::class,
-        ]);
     }
 
     /**
