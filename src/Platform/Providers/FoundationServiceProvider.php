@@ -234,7 +234,7 @@ class FoundationServiceProvider extends ServiceProvider
         if (! Route::hasMacro('screen')) {
             Route::macro('screen', function ($url, $screen, $name = null) {
                 /* @var Router $this */
-                return $this->match(['GET', 'POST'], $url . '/{method?}/{argument?}', [$screen, 'handle'])
+                return $this->match(['GET', 'POST'], $url.'/{method?}/{argument?}', [$screen, 'handle'])
                     ->name($name);
             });
         }

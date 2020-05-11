@@ -1,4 +1,6 @@
-<div class="w-100 border v-center"
-     style="min-height: 250px;background-color: #{{ random_int(0,7). random_int(3,6) . random_int(1,9) }}">
-    <h2 class="text-muted center font-thin label">Dummy</h2>
+<div class="w-100 border-dashed v-center"
+     style="min-height: 250px;">
+    <h2 class="center font-thin label"
+        style="color: #{{ random_int(0,7). random_int(3,6) . random_int(1,9) }}"
+    >Dummy</h2>
 </div>

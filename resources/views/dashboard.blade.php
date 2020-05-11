@@ -55,7 +55,7 @@
         </div>
     </div>
 
-    @includeWhen(\Tabuna\Breadcrumbs\Breadcrumbs::current()->isNotEmpty(), 'platform::partials.breadcrumbs')
+    @includeWhen(\Tabuna\Breadcrumbs\Breadcrumbs::has(), 'platform::partials.breadcrumbs')
 
     <div class="d-flex">
         <div class="app-content-body" id="app-content-body">
