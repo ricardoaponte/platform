@@ -6,7 +6,6 @@ namespace Orchid\Screen\Fields;
 
 use Orchid\Attachment\Models\Attachment;
 use Orchid\Platform\Dashboard;
-use Orchid\Screen\Concerns\Makeable;
 use Orchid\Screen\Field;
 use Orchid\Support\Init;
 

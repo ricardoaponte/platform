@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Orchid\Screen\Fields;
 
 use DateTimeZone;
-use Orchid\Screen\Concerns\Makeable;
 use Orchid\Screen\Field;
 
 /**

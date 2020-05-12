@@ -6,7 +6,6 @@ namespace Orchid\Screen\Fields;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Orchid\Screen\Concerns\Makeable;
 use Orchid\Screen\Field;
 
 /**
