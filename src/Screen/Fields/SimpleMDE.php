@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Orchid\Screen\Fields;
 
+use Orchid\Screen\Concerns\Makeable;
 use Orchid\Screen\Field;
 
 /**
@@ -11,7 +12,6 @@ use Orchid\Screen\Field;
  *
  * @method SimpleMDE accesskey($value = true)
  * @method SimpleMDE autofocus($value = true)
- * @method SimpleMDE checked($value = true)
  * @method SimpleMDE disabled($value = true)
  * @method SimpleMDE form($value = true)
  * @method SimpleMDE formaction($value = true)
@@ -47,7 +47,6 @@ class SimpleMDE extends Field
         'accesskey',
         'autocomplete',
         'autofocus',
-        'checked',
         'disabled',
         'form',
         'formaction',
@@ -55,31 +54,13 @@ class SimpleMDE extends Field
         'formmethod',
         'formnovalidate',
         'formtarget',
-        'list',
-        'max',
-        'maxlength',
-        'min',
-        'multiple',
         'name',
-        'pattern',
         'placeholder',
         'readonly',
         'required',
-        'size',
-        'src',
         'step',
         'tabindex',
         'type',
         'value',
     ];
-
-    /**
-     * @param string|null $name
-     *
-     * @return self
-     */
-    public static function make(string $name = null): self
-    {
-        return (new static())->name($name);
-    }
 }

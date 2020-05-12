@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Orchid\Screen\Fields;
 
+use Orchid\Screen\Concerns\Makeable;
 use Orchid\Screen\Field;
 
 /**
@@ -11,7 +12,6 @@ use Orchid\Screen\Field;
  *
  * @method DateTimer accesskey($value = true)
  * @method DateTimer autofocus($value = true)
- * @method DateTimer checked($value = true)
  * @method DateTimer disabled($value = true)
  * @method DateTimer form($value = true)
  * @method DateTimer formaction($value = true)
@@ -72,20 +72,13 @@ class DateTimer extends Field
         'formmethod',
         'formnovalidate',
         'formtarget',
-        'list',
-        'max',
-        'maxlength',
-        'min',
-        'multiple',
         'name',
-        'pattern',
         'placeholder',
         'readonly',
         'required',
-        'size',
-        'src',
         'step',
         'tabindex',
+        'type',
         'value',
         'data-fields--datetime-enable-time',
         'data-fields--datetime-time-24hr',
@@ -93,16 +86,6 @@ class DateTimer extends Field
         'data-fields--datetime-date-format',
         'data-fields--datetime-no-calendar',
     ];
-
-    /**
-     * @param string|null $name
-     *
-     * @return self
-     */
-    public static function make(string $name = null): self
-    {
-        return (new static())->name($name);
-    }
 
     /**
      * @param bool $time

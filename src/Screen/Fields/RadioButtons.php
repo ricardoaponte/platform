@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Orchid\Screen\Fields;
 
+use Orchid\Screen\Concerns\Makeable;
 use Orchid\Screen\Field;
 
 /**
@@ -57,13 +58,11 @@ class RadioButtons extends Field
     ];
 
     /**
-     * @param string|null $name
-     *
-     * @return self
+     * RadioButtons constructor.
      */
-    public static function make(string $name = null): self
+    public function __construct()
     {
-        return (new static())->name($name)->declarateActive();
+        $this->declarateActive();
     }
 
     /**

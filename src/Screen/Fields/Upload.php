@@ -7,6 +7,7 @@ namespace Orchid\Screen\Fields;
 use Illuminate\Support\Arr;
 use Orchid\Attachment\Models\Attachment;
 use Orchid\Platform\Dashboard;
+use Orchid\Screen\Concerns\Makeable;
 use Orchid\Screen\Field;
 use Orchid\Support\Assert;
 use Orchid\Support\Init;
@@ -20,7 +21,6 @@ use Orchid\Support\Init;
  * @method Upload formmethod($value = true)
  * @method Upload formnovalidate($value = true)
  * @method Upload formtarget($value = true)
- * @method Upload multiple($value = true)
  * @method Upload name(string $value = null)
  * @method Upload placeholder(string $value = null)
  * @method Upload value($value = true)
@@ -72,32 +72,16 @@ class Upload extends Field
      */
     protected $inlineAttributes = [
         'accept',
-        'accesskey',
-        'autocomplete',
-        'autofocus',
-        'checked',
-        'disabled',
         'form',
         'formaction',
         'formenctype',
         'formmethod',
         'formnovalidate',
         'formtarget',
-        'list',
-        'max',
-        'maxlength',
-        'min',
         'multiple',
         'name',
-        'pattern',
         'placeholder',
-        'readonly',
         'required',
-        'size',
-        'src',
-        'step',
-        'tabindex',
-        'type',
         'value',
         'groups',
         'storage',
@@ -106,21 +90,10 @@ class Upload extends Field
     ];
 
     /**
-     * @param string|null $name
-     *
-     * @return self
-     */
-    public static function make(string $name = null): self
-    {
-        return (new static())->name($name);
-    }
-
-    /**
      * Upload constructor.
      */
     public function __construct()
     {
-
         // Set max file size
         $this->addBeforeRender(function () {
             $maxFileSize = $this->get('maxFileSize');

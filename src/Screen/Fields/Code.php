@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Orchid\Screen\Fields;
 
+use Orchid\Screen\Concerns\Makeable;
 use Orchid\Screen\Field;
 
 /**
@@ -69,9 +70,7 @@ class Code extends Field
      * @var array
      */
     protected $inlineAttributes = [
-        'accept',
         'accesskey',
-        'autocomplete',
         'autofocus',
         'checked',
         'disabled',
@@ -83,39 +82,25 @@ class Code extends Field
         'formtarget',
         'language',
         'lineNumbers',
-        'list',
-        'max',
-        'maxlength',
-        'min',
-        'multiple',
         'name',
-        'pattern',
         'placeholder',
         'readonly',
         'required',
-        'size',
-        'src',
-        'step',
         'tabindex',
-        'type',
         'value',
         'height',
     ];
 
     /**
-     * @param string|null $name
-     *
-     * @return self
+     * Code constructor.
      */
-    public static function make(string $name = null): self
+    public function __construct()
     {
-        return (new static())
-            ->name($name)
-            ->addBeforeRender(function () {
-                if ($this->get('language') === 'json') {
-                    $value = $this->get('value');
-                    $this->set('value', json_encode($value));
-                }
-            });
+        $this->addBeforeRender(function () {
+            if ($this->get('language') === 'json') {
+                $value = $this->get('value');
+                $this->set('value', json_encode($value));
+            }
+        });
     }
 }

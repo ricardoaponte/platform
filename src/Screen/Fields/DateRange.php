@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Orchid\Screen\Fields;
 
+use Orchid\Screen\Concerns\Makeable;
 use Orchid\Screen\Field;
 
 /**
@@ -11,7 +12,6 @@ use Orchid\Screen\Field;
  *
  * @method DateRange accesskey($value = true)
  * @method DateRange autofocus($value = true)
- * @method DateRange checked($value = true)
  * @method DateRange disabled($value = true)
  * @method DateRange form($value = true)
  * @method DateRange formaction($value = true)
@@ -54,9 +54,7 @@ class DateRange extends Field
     protected $inlineAttributes = [
         'accept',
         'accesskey',
-        'autocomplete',
         'autofocus',
-        'checked',
         'disabled',
         'form',
         'formaction',
@@ -64,30 +62,13 @@ class DateRange extends Field
         'formmethod',
         'formnovalidate',
         'formtarget',
-        'list',
-        'max',
-        'maxlength',
-        'min',
-        'multiple',
         'name',
-        'pattern',
         'placeholder',
         'readonly',
         'required',
-        'size',
-        'src',
+        'type',
         'step',
         'tabindex',
         'value',
     ];
-
-    /**
-     * @param string|null $name
-     *
-     * @return DateRange
-     */
-    public static function make(string $name = null): self
-    {
-        return (new static())->name($name);
-    }
 }

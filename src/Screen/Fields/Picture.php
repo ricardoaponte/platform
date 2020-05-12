@@ -6,6 +6,7 @@ namespace Orchid\Screen\Fields;
 
 use Orchid\Attachment\Models\Attachment;
 use Orchid\Platform\Dashboard;
+use Orchid\Screen\Concerns\Makeable;
 use Orchid\Screen\Field;
 use Orchid\Support\Init;
 
@@ -16,7 +17,6 @@ use Orchid\Support\Init;
  * @method Picture required(bool $value = true)
  * @method Picture size($value = true)
  * @method Picture src($value = true)
- * @method Picture type($value = true)
  * @method Picture value($value = true)
  * @method Picture help(string $value = null)
  * @method Picture popover(string $value = null)
@@ -55,15 +55,12 @@ class Picture extends Field
         'formnovalidate',
         'formtarget',
         'name',
-        'pattern',
         'placeholder',
         'readonly',
         'required',
-        'size',
         'src',
         'step',
         'tabindex',
-        'type',
         'value',
         'target',
         'url',
@@ -91,16 +88,6 @@ class Picture extends Field
                 \RuntimeException::class,
                 'Cannot set the desired maximum file size. This contradicts the settings specified in .ini');
         });
-    }
-
-    /**
-     * @param string|null $name
-     *
-     * @return self
-     */
-    public static function make(string $name = null): self
-    {
-        return (new static())->name($name);
     }
 
     /**

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Orchid\Screen\Fields;
 
+use Orchid\Screen\Concerns\Makeable;
 use Orchid\Screen\Field;
 
 /**
@@ -24,15 +25,5 @@ class ViewField extends Field
         $this->view = $view;
 
         return $this;
-    }
-
-    /**
-     * @param string|null $name
-     *
-     * @return ViewField
-     */
-    public static function make(string $name = null): self
-    {
-        return (new static())->name($name);
     }
 }

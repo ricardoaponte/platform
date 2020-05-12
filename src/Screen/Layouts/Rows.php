@@ -20,6 +20,13 @@ abstract class Rows extends Base
     protected $template = 'platform::layouts.row';
 
     /**
+     * Used to create the title of a group of form elements
+     *
+     * @var string|null
+     */
+    protected $title;
+
+    /**
      * @var Repository
      */
     protected $query;
@@ -42,7 +49,20 @@ abstract class Rows extends Base
 
         return view($this->template, [
             'form' => $form->generateForm(),
+            'title' => $this->title
         ]);
+    }
+
+    /**
+     * @param string|null $title
+     *
+     * @return Rows
+     */
+    public function title(string $title = null): Rows
+    {
+        $this->title = $title;
+
+        return $this;
     }
 
     /**

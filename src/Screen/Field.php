@@ -10,6 +10,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\MessageBag;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
+use Orchid\Screen\Concerns\Makeable;
 use Orchid\Screen\Contracts\Fieldable;
 use Orchid\Screen\Exceptions\FieldRequiredAttributeException;
 use Throwable;
@@ -29,7 +30,7 @@ use Throwable;
  */
 class Field implements Fieldable
 {
-    use CanSee;
+    use CanSee, Makeable;
 
     /**
      * A set of closure functions
@@ -325,12 +326,6 @@ class Field implements Fieldable
         }
 
         $class = $this->get('class');
-
-        if (is_null($class)) {
-            $this->set('class', ' is-invalid');
-
-            return $this;
-        }
 
         return $this->set('class', $class.' is-invalid');
     }

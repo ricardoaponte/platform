@@ -7,6 +7,7 @@ namespace Orchid\Screen\Fields;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Crypt;
+use Orchid\Screen\Concerns\Makeable;
 use Orchid\Screen\Field;
 use Orchid\Support\Assert;
 
@@ -75,16 +76,6 @@ class Relation extends Field
         'tabindex',
         'data-maximum-selection-length',
     ];
-
-    /**
-     * @param string|null $name
-     *
-     * @return Relation
-     */
-    public static function make(string $name = null): self
-    {
-        return (new static())->name($name);
-    }
 
     /**
      * @return Relation

@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Orchid\Screen\Fields;
 
+use Orchid\Screen\Concerns\Makeable;
 use Orchid\Screen\Field;
 
 /**
  * Class Quill.
  *
  * @method Quill autofocus($value = true)
- * @method Quill checked($value = true)
  * @method Quill disabled($value = true)
  * @method Quill form($value = true)
  * @method Quill formaction($value = true)
@@ -51,7 +51,6 @@ class Quill extends Field
      * @var array
      */
     protected $inlineAttributes = [
-        'accept',
         'accesskey',
         'autocomplete',
         'autofocus',
@@ -63,32 +62,13 @@ class Quill extends Field
         'formmethod',
         'formnovalidate',
         'formtarget',
-        'list',
-        'max',
-        'maxlength',
-        'min',
-        'multiple',
         'name',
-        'pattern',
         'placeholder',
         'readonly',
         'required',
-        'size',
-        'src',
         'step',
         'tabindex',
-        'type',
         'value',
         'height',
     ];
-
-    /**
-     * @param string|null $name
-     *
-     * @return self
-     */
-    public static function make(string $name = null): self
-    {
-        return (new static())->name($name);
-    }
 }

@@ -6,6 +6,7 @@ namespace Orchid\Screen\Fields;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Orchid\Screen\Concerns\Makeable;
 use Orchid\Screen\Field;
 
 /**
@@ -57,16 +58,6 @@ class Select extends Field
         'size',
         'tabindex',
     ];
-
-    /**
-     * @param string|null $name
-     *
-     * @return self
-     */
-    public static function make(string $name = null): self
-    {
-        return (new static())->name($name);
-    }
 
     /**
      * @return self

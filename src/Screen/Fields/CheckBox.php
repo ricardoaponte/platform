@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Orchid\Screen\Fields;
 
+use Orchid\Screen\Concerns\Makeable;
 use Orchid\Screen\Field;
 
 /**
@@ -55,9 +56,7 @@ class CheckBox extends Field
      * @var array
      */
     protected $inlineAttributes = [
-        'accept',
         'accesskey',
-        'autocomplete',
         'autofocus',
         'checked',
         'disabled',
@@ -67,33 +66,14 @@ class CheckBox extends Field
         'formmethod',
         'formnovalidate',
         'formtarget',
-        'list',
-        'max',
-        'maxlength',
-        'min',
-        'multiple',
         'name',
-        'pattern',
         'placeholder',
         'readonly',
         'required',
-        'size',
-        'src',
-        'step',
         'tabindex',
         'value',
         'type',
         'novalue',
         'yesvalue',
     ];
-
-    /**
-     * @param string|null $name
-     *
-     * @return self
-     */
-    public static function make(string $name = null): self
-    {
-        return (new static())->name($name);
-    }
 }
