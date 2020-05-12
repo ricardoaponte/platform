@@ -18,7 +18,7 @@ class DummyClass extends Table
     protected $target = '';
 
     /**
-     * Get the table cells to be displayed
+     * Get the table cells to be displayed.
      *
      * @return TD[]
      */
