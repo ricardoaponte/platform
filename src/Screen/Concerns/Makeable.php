@@ -15,6 +15,6 @@ trait Makeable
      */
     public static function make(string $name = null): self
     {
-        return new (static::class)->name($name);
+        return (new static)->name($name);
     }
 }
