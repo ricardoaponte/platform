@@ -235,12 +235,12 @@ class FoundationServiceProvider extends ServiceProvider
             Route::macro('screen', function (string $url, string $screen, string $name = null) {
 
                 /* @var Router $this */
-                $route = $this->match(['GET', 'POST'], $url . '/{method?}/{argument?}', [$screen, 'handle'])
+                $route = $this->match(['GET', 'POST'], $url.'/{method?}/{argument?}', [$screen, 'handle'])
                     ->name($name);
 
                 $methods = forward_static_call([$screen, 'getAvailableMethods']);
 
-                if (!empty($methods)) {
+                if (! empty($methods)) {
                     $route->where('method', implode('|', $methods));
                 }
 
