@@ -241,7 +241,7 @@ class FoundationServiceProvider extends ServiceProvider
                 $methods = forward_static_call([$screen, 'getAvailableMethods']);
 
                 if (!empty($methods)) {
-                    $route->where('method', implode('|', $methods));
+                    //$route->where('method', implode('|', $methods));
                 }
 
                 return $route;

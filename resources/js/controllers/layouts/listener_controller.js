@@ -40,7 +40,7 @@ export default class extends Controller {
             return;
         }
 
-        let name = this.data.get('url') + '/' + this.data.get('method') + '/' + this.data.get('slug');
+        let name = this.data.get('url') + '/' + this.data.get('slug') + '/' + this.data.get('method');
 
         axios.post(name, params).then((response) => {
             this.element.querySelector('[data-async]').innerHTML = response.data;
