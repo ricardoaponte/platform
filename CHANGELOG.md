@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 - Color scheme
 - Replaced a package of breadcrumbs with [tabuna/breadcrumbs](https://github.com/tabuna/breadcrumbs)
+- Route screen only for available methods
+- The order of the method and arguments during an asynchronous call
 
 ### Remove
 - Pending `Requests` in the screen constructor

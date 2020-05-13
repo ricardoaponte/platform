@@ -232,10 +232,19 @@ class FoundationServiceProvider extends ServiceProvider
         });
 
         if (! Route::hasMacro('screen')) {
-            Route::macro('screen', function ($url, $screen, $name = null) {
+            Route::macro('screen', function (string $url, string $screen, string $name = null) {
+
                 /* @var Router $this */
-                return $this->match(['GET', 'POST'], $url.'/{method?}/{argument?}', [$screen, 'handle'])
+                $route = $this->match(['GET', 'POST'], $url . '/{method?}/{argument?}', [$screen, 'handle'])
                     ->name($name);
+
+                $methods = forward_static_call([$screen, 'getAvailableMethods']);
+
+                if (!empty($methods)) {
+                    $route->where('method', implode('|', $methods));
+                }
+
+                return $route;
             });
         }
 

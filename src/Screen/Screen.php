@@ -158,7 +158,7 @@ abstract class Screen extends Controller
             return $this->redirectOnGetMethodCallOrShowView();
         }
 
-        $method = array_pop($parameters);
+        $method = array_shift($parameters);
         $this->arguments = $parameters;
 
         if (Str::startsWith($method, 'async')) {
@@ -271,5 +271,20 @@ abstract class Screen extends Controller
         array_pop($this->arguments);
 
         return redirect()->action([static::class, 'handle'], $this->arguments);
+    }
+
+    /**
+     * Get can transfer to the screen only
+     * user-created methods available in it.
+     *
+     * @array
+     */
+    public static function getAvailableMethods(): array
+    {
+        return array_diff(
+            get_class_methods(static::class), // Custom methods
+            get_class_methods(self::class),   // Basic methods
+            ['query']                                   // Except methods
+        );
     }
 }
