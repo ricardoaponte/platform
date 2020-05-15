@@ -193,13 +193,14 @@ div.mce-fullscreen {
       position: relative;
       i {
         @extend .r-3x;
-        @extend .text-white;
+        @extend .bg-light;
+        @extend .text-black;
+        @extend .border;
         top: 0;
         left: 0;
         border-radius: 3px;
         height: 28px;
         width: 28px;
-        background: $brand-dark;
         position: absolute;
 
         &:before {
@@ -296,4 +297,10 @@ div.mce-fullscreen {
       max-width: 100vw;
     }
   }
+}
+
+.matrix {
+    .form-control:focus {
+        border-radius: 0;
+    }
 }

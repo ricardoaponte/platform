@@ -41,7 +41,7 @@
 @endsection
 
 @section('body-right')
-    <div class="p-3 mt-md-4 @hasSection('navbar') @else d-none d-md-block @endif">
+    <div class="p-3 pr-md-0 mt-md-4 @hasSection('navbar') @else d-none d-md-block @endif">
         <div class="v-md-center">
             <div class="d-none d-md-block col-xs-12 col-md no-padder">
                 <h1 class="m-n font-thin h3 text-black">@yield('title')</h1>

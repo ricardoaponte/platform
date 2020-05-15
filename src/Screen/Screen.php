@@ -7,8 +7,10 @@ namespace Orchid\Screen;
 use Illuminate\Contracts\Routing\UrlRoutable;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 use Orchid\Platform\Http\Controllers\Controller;
 use Orchid\Screen\Layouts\Base;
@@ -119,7 +121,7 @@ abstract class Screen extends Controller
      * @return Factory|\Illuminate\View\View
      * @throws ReflectionException
      */
-    public function view(array $httpQueryArguments)
+    public function view(array $httpQueryArguments = [])
     {
         $query = $this->callMethod('query', $httpQueryArguments);
 
@@ -142,13 +144,20 @@ abstract class Screen extends Controller
      */
     public function handle(...$parameters)
     {
-        abort_if(! $this->checkAccess(), 403);
+        abort_unless($this->checkAccess(), 403);
 
-        if (request()->isMethod('GET') || (! count($parameters))) {
+        if (request()->isMethod('GET')) {
             return $this->redirectOnGetMethodCallOrShowView($parameters);
         }
 
-        $method = array_pop($parameters);
+        $method = Route::current()->parameter('method', Arr::last($parameters));
+
+        $parameters = array_diff(
+            $parameters,
+            [$method],
+        );
+
+        $parameters = array_filter($parameters);
 
         if (Str::startsWith($method, 'async')) {
             return $this->asyncBuild($method, array_pop($parameters));
@@ -265,7 +274,7 @@ abstract class Screen extends Controller
      */
     protected function redirectOnGetMethodCallOrShowView(array $httpQueryArguments)
     {
-        $expectedArg = count(request()->route()->getCompiled()->getVariables()) - self::COUNT_ROUTE_VARIABLES;
+        $expectedArg = count(Route::current()->getCompiled()->getVariables()) - self::COUNT_ROUTE_VARIABLES;
         $realArg = count($httpQueryArguments);
 
         if ($realArg <= $expectedArg) {

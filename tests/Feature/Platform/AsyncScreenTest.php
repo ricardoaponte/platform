@@ -18,8 +18,8 @@ class AsyncScreenTest extends TestFeatureCase
         $response = $this
             ->actingAs($this->createAdminUser())
             ->post(route('test.dependent-listener', [
-                'method'   => $layout->getSlug(),
-                'argument' => 'asyncSum',
+                'method'   => 'asyncSum',
+                'argument' => $layout->getSlug(),
             ]), [
                 'first'  => 2,
                 'second' => 3,
@@ -39,8 +39,8 @@ class AsyncScreenTest extends TestFeatureCase
         $response = $this
             ->actingAs($this->createAdminUser())
             ->post(route('test.dependent-listener', [
-                'method'   => Str::random(),
-                'argument' => 'asyncSum',
+                'method'   => 'asyncSum',
+                'argument' => Str::random(),
             ]), [
                 'first'  => 2,
                 'second' => 3,

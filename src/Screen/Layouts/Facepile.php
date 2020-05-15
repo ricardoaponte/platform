@@ -17,7 +17,7 @@ class Facepile extends Content
     protected $template = 'platform::layouts.facepile';
 
     /**
-     * @param Personable[] $users
+     * @param Personable[]|ArrayAccess $users
      *
      * @return View
      */
