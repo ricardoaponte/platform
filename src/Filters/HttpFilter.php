@@ -195,7 +195,7 @@ class HttpFilter
     public function revertSort(string $property): string
     {
         return $this->getSort($property) === 'asc'
-            ? '-' . $property
+            ? '-'.$property
             : $property;
     }
 
