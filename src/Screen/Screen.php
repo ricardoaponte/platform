@@ -155,7 +155,7 @@ abstract class Screen extends Controller
 
         $parameters = array_diff(
             $parameters,
-            [$method],
+            [$method]
         );
 
         $parameters = array_filter($parameters);
