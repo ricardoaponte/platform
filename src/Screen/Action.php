@@ -29,15 +29,13 @@ class Action extends Field implements Actionable
     ];
 
     /**
-     * Create a new Field element.
-     *
      * @param string|null $name
      *
      * @return self
      */
-    public static function make(string $name = null): self
+    public function name(string $name = null)
     {
-        return (new static)->name($name ?? '');
+        return $this->set('name', $name ?? '');
     }
 
     /**
