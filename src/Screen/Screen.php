@@ -118,8 +118,9 @@ abstract class Screen extends Controller
     /**
      * @param array $httpQueryArguments
      *
-     * @return Factory|\Illuminate\View\View
      * @throws ReflectionException
+     *
+     * @return Factory|\Illuminate\View\View
      */
     public function view(array $httpQueryArguments = [])
     {
@@ -170,8 +171,9 @@ abstract class Screen extends Controller
      * @param string $method
      * @param array  $httpQueryArguments
      *
-     * @return array
      * @throws ReflectionException
+     *
+     * @return array
      */
     private function reflectionParams(string $method, array $httpQueryArguments = []): array
     {
@@ -201,8 +203,9 @@ abstract class Screen extends Controller
      * @param ReflectionParameter $parameter
      * @param array               $httpQueryArguments
      *
-     * @return mixed
      * @throws \Illuminate\Contracts\Container\BindingResolutionException
+     *
+     * @return mixed
      */
     private function bind(int $key, ReflectionParameter $parameter, array $httpQueryArguments)
     {
@@ -245,8 +248,9 @@ abstract class Screen extends Controller
      * @param string $method
      * @param array  $parameters
      *
-     * @return mixed
      * @throws ReflectionException
+     *
+     * @return mixed
      */
     private function callMethod(string $method, array $parameters = [])
     {
@@ -269,8 +273,9 @@ abstract class Screen extends Controller
      *
      * @param array $httpQueryArguments
      *
-     * @return Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
      * @throws Throwable
+     *
+     * @return Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
      */
     protected function redirectOnGetMethodCallOrShowView(array $httpQueryArguments)
     {
@@ -300,5 +305,4 @@ abstract class Screen extends Controller
             ['query']                                   // Except methods
         );
     }
-
 }
